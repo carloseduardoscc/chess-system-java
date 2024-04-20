@@ -22,7 +22,7 @@ public class Program {
 			try {
 				UI.clearScreen();
 				System.out.println();
-				UI.printMatch(chessMatch, captured);//TODO adicionar implementação para imprimir também as peças capturadas
+				UI.printMatch(chessMatch, captured);
 				System.out.print("Source: ");
 				ChessPosition source = UI.readChessPosition(sc);
 
@@ -34,7 +34,7 @@ public class Program {
 				ChessPosition target = UI.readChessPosition(sc);
 
 				ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
-				if(capturedPiece != null) {
+				if (capturedPiece != null) {
 					captured.add(capturedPiece);
 				}
 			} catch (ChessException e) {
