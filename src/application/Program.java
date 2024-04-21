@@ -1,5 +1,6 @@
 package application;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -34,27 +35,41 @@ public class Program {
 				ChessPosition target = UI.readChessPosition(sc);
 
 				ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
-				
+
 				if (capturedPiece != null) {
 					captured.add(capturedPiece);
 				}
-				
+
 				if (chessMatch.getPromoted() != null) {
-					System.out.println("Enter piece for promotion (B/N/R/Q); ");
-					String type = sc.nextLine();
-					chessMatch.replacePromotedPiece(type);
+					while (true) {
+						try {
+							System.out.println();
+							System.out.print("Enter piece for promotion (B/N/R/Q): ");
+							String type = sc.nextLine();
+							chessMatch.replacePromotedPiece(type);
+							break;
+						} catch (InvalidParameterException e) {
+							System.out.println();
+							System.out.println(e.getMessage());
+							sc.nextLine();
+							UI.clearScreen();
+							UI.printBoard(chessMatch.getPieces(), possibleMoves);
+							System.out.println();
+						}
+					}
 				}
-				
+
 			} catch (ChessException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
 			} catch (InputMismatchException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
+
 			}
+
+			UI.clearScreen();
+			UI.printMatch(chessMatch, captured);
 		}
-		
-		UI.clearScreen();
-		UI.printMatch(chessMatch, captured);
 	}
 }

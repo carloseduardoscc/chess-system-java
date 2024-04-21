@@ -55,6 +55,7 @@ public class UI {
 		System.out.println("Turn: " + chessMatch.getTurn());
 		if (!chessMatch.getCheckMate()) {
 			System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
+			System.out.println();
 			if (chessMatch.getCheck()) {
 				System.out.println("CHECK!");
 			}
@@ -106,6 +107,7 @@ public class UI {
 		// TODO possível fonte de erro!
 		List<ChessPiece> white = captured.stream().filter(x -> x.getColor() == Color.WHITE).toList();
 		List<ChessPiece> black = captured.stream().filter(x -> x.getColor() == Color.BLACK).toList();
+		System.out.println();
 		System.out.println("Captured pieces: ");
 		System.out.print("White: ");
 		System.out.print(ANSI_WHITE);
