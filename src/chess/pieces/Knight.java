@@ -21,6 +21,7 @@ public class Knight extends ChessPiece{
 		return p == null || p.getColor() != getColor();
 	}
 
+	//TODO ver se realmente precisa destes canMove no Knight, já que foram copiados!
 	@Override
 	public boolean[][] possibleMoves() {
 		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
