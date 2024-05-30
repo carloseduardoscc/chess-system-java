@@ -6,3 +6,5 @@ Aproveitando as ferramentas e arquitetura oferecida pela linguagem para produzir
 
 ## Uso
 Execute o arquivo Program.java em Application em um terminal em codificação Unicode ou que suporte coloração de caracteres
+
+> Obs.: O projeto foi desenvolvido seguindo o curso de Java na Udemy feito por [Nelio Alves](https://github.com/acenelio).
